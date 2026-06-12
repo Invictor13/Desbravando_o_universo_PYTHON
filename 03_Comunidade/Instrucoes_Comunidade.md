@@ -1,9 +1,9 @@
-# <c>Desbravando-o-Python</c>
+# <c>Desbravando-o-GitHub</c>
 Um Manual de Boas Práticas.
 ___
 
 ## 1) Introdução
-* O conceito deste repositório é de servir como um guia prático da linguagem Python.
+* O conceito deste repositório é de servir como um guia prático do GitHub.
 * Disponibilizaremos exemplos práticos e teóricos
 
 ___
