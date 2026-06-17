@@ -1,4 +1,4 @@
-# <c>Desbravando-o-GitHub</c>
+# <c>Desbravando-o-PYTHON</c>
 Um Manual de Boas Práticas.
 ___
 
