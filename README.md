@@ -1,40 +1,47 @@
 # Desbravando o Universo ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
+Seja muito bem-vindo! 🚀
 
-Sejam Bem Vindos,
-Este repositório foi estruturado para otimizar o aprendizado a linguagem Python. Aqui você encontrará conceitos téoricos, exercícios de fixação, desafios e projetos.
-Este ecossistema foi desenvolvido para ser OpenSource, você poderá:
-* Importar os exercícios que você resolveu na aba comunidades.
-* Visualizar o conteúdo Teórico da Linguagem em nossa Wiki.
-* Criar novas Issues, com o intuito de propor novas atividades academicas e projetos.
-* Visualize em nosso Kanban, as Issues atuais para nos ajudar com o repositório. 
----
+Este repositório foi totalmente estruturado para otimizar o seu aprendizado na linguagem Python através da prática constante. Aqui você encontrará exercícios de fixação, desafios de lógica e projetos reais de programação.
 
-## 1) Navegação no Repositório 🗺️
-
-| Diretório Principal | Subpasta / Módulo | Descrição |
-| :--- | :--- | :--- |
-| 📁 **01_Fundamentos_Desafios/** | | O coração do aprendizado (Teoria + Laboratórios) |
-| | └── 📁 `0_SintaxeBasica/` | Variáveis, tipos de dados e operadores básicos |
-| | └── 📁 `1_Estruturas_Controle/` | Tomadas de decisão e laços de repetição |
-| | └── 📁 `2_Funcoes/` | Modularização, escopo e boas práticas com funções |
-| | └── 📁 `3_POO/` | Programação Orientada a Objetos na prática dev |
-| 📁 **02_Projetos_Praticos/** | | Projetos reais que integram múltiplos conceitos |
-| 📁 **03_Comunidade/** | | O seu laboratório e o espaço para novos devs |
-
-Observação:
- * Os exercícios de fundamentos e desáfios, possuem uma dificuldade progressiva. Preparando o colaborador para os projetos práticos.
- * Acesse a Wiki deste repositório, caso necessite de fundamentação teórica.
+Este ecossistema foi desenvolvido para ser **Open Source**. Nele, você poderá:
+* 📖 Estudar toda a fundamentação teórica direto na nossa [Wiki do Projeto](../../wiki).
+* 🧪 Guardar suas próprias resoluções de exercícios dentro da pasta dedicada à [Comunidade](./03_Comunidade).
+* 💡 Sugerir novas atividades acadêmicas ou relatar problemas abrindo uma nova [Issue](../../issues).
+* 🛹 Acompanhar a evolução do projeto e tarefas pendentes em nosso [Kanban](../../projects).
 
 ---
 
-## Como Contribuir (Comunidade Open-Source) 🤝
+## 🧭 1. Como Estudar por Aqui?
 
-Este é um ambiente seguro e colaborativo. Você pode deixar suas soluções gravadas no repositório ou propor melhorias usando nossas ferramentas integradas:
+Para extrair o máximo de valor deste projeto, siga a esteira de aprendizado:
+
+```mermaid
+graph LR
+    A[1. Estude a Teoria na Wiki] --> B[2. Clone o Repositório]
+    B --> C[3. Resolva os Desafios Práticos]
+    C --> D[4. Suba seu Código na Comunidade]
+```
+## 🗺️ 2. Navegação no Repositório
+
+| Diretório Principal / Subpasta | Descrição |
+| :--- | :--- |
+| 📁 **[01_Fundamentos_Desafios](./01_Fundamentos_Desafios)** | O coração do aprendizado (Exercícios práticos em código) |
+| └── 📁 `0_SintaxeBasica/` | Variáveis, tipos de dados e operadores básicos |
+| └── 📁 `1_Estruturas_Controle/` | Tomadas de decisão (if/else) e laços de repetição (for/while) |
+| └── 📁 `2_Funcoes/` | Modularização, escopo e boas práticas com funções |
+| └── 📁 `3_POO/` | Programação Orientada a Objetos aplicada ao mundo real |
+| 📁 **[02_Projetos_Praticos](./02_Projetos_Praticos)** | Projetos reais que integram múltiplos conceitos da linguagem |
+| 📁 **[03_Comunidade](./03_Comunidade)** | O seu laboratório pessoal e o espaço do novos devs |
+
+> 💡 **Observação:** Os exercícios de fundamentos e os desafios possuem uma **dificuldade progressiva**, preparando você de forma sólida para encarar os projetos práticos. Se precisar de suporte teórico antes de codar, acesse o nosso [Portal de Estudos na Wiki](../../wiki).
+
+## 🤝 3. Como Contribuir (Comunidade Open Source)
+
+Este é um ambiente seguro, colaborativo e feito para quem quer aprender na prática ou construir portfólio. Veja como interagir com o ecossistema:
+
 | Ferramenta / Ação | Como Funciona? | Objetivo / Utilização |
 | :---: | :--- | :--- |
-| **Issues Organizadas** | Use nossos templates de Issues disponíveis na aba do repositório. | Reportar melhorias, relatar bugs ou sugerir novos conceitos e exercícios para a nossa trilha. |
-| **Seu Espaço** | Crie uma subpasta com o seu nome de usuário dentro do diretório `03_Comunidade/`. | Salvar seus gabaritos, códigos e scripts pessoais de estudo com total liberdade e sem risco de conflitos. |
-| **Pull Requests** | Faça um *Fork* do projeto, implemente suas alterações em sua cópia e envie o pedido de integração. | Propor desafios novos ou correções oficiais. Nós avaliaremos o código para adicioná-lo ao projeto principal! |
-
-## Desenvolvido com por Invictor13. Bora desbravar o código! 🐺
+| **Issues Organizadas** | Use os nossos templates prontos na aba [Issues](../../issues). | Reportar bugs, sugerir melhorias de código ou propor novos exercícios para a trilha. |
+| **Seu Espaço Dev** | Crie uma subpasta com o seu nome de usuário do GitHub dentro de `03_Comunidade/`. | Salvar seus gabaritos, scripts de estudo e códigos pessoais com total liberdade, sem riscos de conflitos. |
+| **Pull Requests** | Faça um *Fork* do projeto, implemente suas melhorias e envie o pedido de integração. | Propor desafios inéditos, correções de sintaxe ou otimizações oficiais no core do projeto. |
