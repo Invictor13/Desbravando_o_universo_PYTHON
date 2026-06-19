@@ -31,3 +31,17 @@ print("""
              ------ Analisador de Listas -------
 Este script coletará 5 números e trará estatísticas sobre a lista
 --------------------------------------------------------""", end="\n")
+
+lista = []
+
+for i in range(5):
+    n = int(input(f"Informe o {i+1}º número da lista: "))
+    lista.append(n)
+
+
+print("--------------------------------------------------------")
+print(f"Lista original: {lista}")
+print(f"Lista ordenada: {sorted(lista)}")
+print(f"Soma dos valores: {sum(lista)}")
+print(f"Maior valor: {max(lista)} | Menor valor: {min(lista)}")
+print("--------------------------------------------------------")

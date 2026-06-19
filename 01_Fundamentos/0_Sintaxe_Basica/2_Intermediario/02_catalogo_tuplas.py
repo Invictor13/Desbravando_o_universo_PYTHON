@@ -28,3 +28,21 @@ print("""
              ------ Catálogo de Jogos -------
 Este script exibirá uma lista imutável de jogos clássicos
 --------------------------------------------------------""", end="\n")
+
+# 1. Criando a TUPLA com parênteses ( ) e exibindo o catálogo completo
+tupla = ("Zelda: Ocarina of Time", "Star Wars: KOTOR", "Kingdom Hearts", "Crimson Desert", "Super Mario World")
+print(f"Catálogo de Jogos: {tupla}")
+print("--------------------------------------------------------")
+
+# 2. Entrada do usuário
+user_escolha = int(input("Por favor, escolha um jogo pelo número (1-5): "))
+
+# Ajustando o índice do usuário (ex: se escolher 2, vira índice 1)
+indice_real = user_escolha - 1
+
+# 3 e 4. Exibindo os resultados usando os colchetes [ ] e o índice negativo -1 para o último
+print(f"""
+      1) Você escolheu o jogo: {tupla[indice_real]}
+      2) Primeiro Jogo do catálogo (Índice 0): {tupla[0]}
+      3) Último Jogo do catálogo (Índice -1): {tupla[-1]}
+--------------------------------------------------------""")
