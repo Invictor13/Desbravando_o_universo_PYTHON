@@ -1,0 +1,42 @@
+"""
+DESAFIO 08: Dobro, Triplo e Raiz Quadrada
+
+Nível: Iniciante
+Objetivo: Explorar os operadores aritméticos de multiplicação e potenciação.
+Conceitos: Multiplicação, operador de potência (**) ou raiz quadrada por expoente fracionário (0.5).
+
+Enunciado:
+    Crie um algoritmo que leia um número inteiro do usuário e mostre na tela 
+    o seu dobro, o seu triplo e a sua raiz quadrada.
+
+Exemplo de Execução:
+    Digite um número: 9
+    O dobro de 9 é: 18
+    O triplo de 9 é: 27
+    O número elevado ao quadrado: 81
+    A raiz quadrada de 9 é: 3.0
+"""
+
+# Desenvolva o seu código abaixo:
+
+print("""
+             ------ Dobro, Triplo e Raiz Quadrada -------
+Este Script mostrará o dobro, triplo e a raiz quadrada de um número
+--------------------------------------------------------""", end="\n")
+
+n = int(input("Favor informar um número inteiro: "))
+
+n_dobro = n * 2
+n_triplo = n * 3
+n_quadrado = n ** 2
+n_raizquadrada = n ** 0.5
+
+print("--------------------------------------------------------",end="\n")
+print(f"""
+    1- Valor Digitado: {n}
+    2- O dobro de {n} = {n_dobro}
+    3- O triplo de {n} = {n_triplo}
+    4- {n}² = {n_quadrado}
+    5- A Raiz Quadrada de {n} = {n_raizquadrada:.2f} 
+      """)
+print("--------------------------------------------------------",end="\n")
