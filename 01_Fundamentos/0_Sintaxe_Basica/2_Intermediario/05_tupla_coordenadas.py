@@ -26,3 +26,12 @@ print("""
              ------ Sistema de Coordenadas GPS -------
 Este script empacotará e validará dados geográficos imutáveis
 --------------------------------------------------------""", end="\n")
+
+coordenada = (
+    float(input("Favor Informar a Latitude: ")),
+    float(input("Favor Informar a Longitude: ")))
+lat, lon = coordenada
+
+print("---- Coordenadas Salvas com Sucesso ----")
+print(f"Latitude Registrada: {lat}º")
+print(f"Longitude Registrada: {lon}º")

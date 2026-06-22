@@ -27,3 +27,22 @@ print("""
              ------ Analisador Estático de Nomes -------
 Este script destrinchará uma string usando métodos nativos do Python
 --------------------------------------------------------""", end="\n")
+nome = input("Informe o seu nome: ")
+
+#Transformando em Maiúsculo e Minúsculo:
+nome_maiusculo = nome.upper()
+nome_minusculo = nome.lower()
+
+#Retirando os espaços do nome e realizando a contagem:
+nome_sem_espaço = nome.replace(" ","")
+total_letras = len(nome_sem_espaço)
+
+#Fatiando o Nome completo, através da criação de lista separada por espaço.
+nome_fatiado = nome.split()
+total_primeironome = len(nome_fatiado[0])
+
+print("Nome em Maiúsculo: ",nome_maiusculo)
+print("Nome em Minúsculo: ",nome_minusculo)
+print("Total de Letras: ",total_letras)
+print("Total de Letras do Primeiro Nome: ",total_primeironome)
+

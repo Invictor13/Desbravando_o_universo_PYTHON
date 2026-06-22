@@ -26,3 +26,17 @@ print("""
              ------ Mascarador de Dados Sensíveis -------
 Este script ocultará os dígitos centrais de um cartão e validará o seu formato
 --------------------------------------------------------""", end="\n")
+
+numero_cartao = input("Informe o número do Cartão: ").strip()
+verificador_digitos = len(numero_cartao)
+prefixo = numero_cartao[0:4]
+sufixo = numero_cartao[-2:]
+validador = (verificador_digitos==16)
+
+print(f"""
+------------ Leitura do Cartão ------------------
+Número do Cartão: {numero_cartao}
+--------- Mascarando Dados Sensísveis ------------
+Cartão Máscarado:{prefixo}********{sufixo}
+Cartão com tamanho válido:{validador}     
+      """)

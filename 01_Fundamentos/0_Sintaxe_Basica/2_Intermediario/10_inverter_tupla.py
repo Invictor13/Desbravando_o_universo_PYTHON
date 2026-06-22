@@ -24,3 +24,9 @@ print("""
              ------ Inversor de Histórico -------
 Este script gerará uma nova sequência imutável com a ordem dos itens invertida
 --------------------------------------------------------""", end="\n")
+
+tupla = ('Login', 'Abrir Pasta', 'Editar Código', 'Salvar', 'Fazer Commit')
+tupla_invertida = tupla[::-1]
+
+print(f"Tupla Original: {tupla}")
+print(f"Tupla Invertida: {tupla_invertida}")

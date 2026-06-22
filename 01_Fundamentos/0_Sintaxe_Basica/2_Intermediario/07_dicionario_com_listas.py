@@ -26,3 +26,30 @@ print("""
              ------ Boletim Escolar Avançado -------
 Este script gerenciará notas armazenando uma lista dentro de um dicionário
 --------------------------------------------------------""", end="\n")
+
+# Dicionário mapeando Nome -> Lista de Notas (corrigido para usar : e vírgulas decimais com ponto)
+boletim = {
+    "Victor": [9.0, 7.8, 7.9], 
+    "Jessica": [8.5, 8.7, 8.4],
+    "Eros": [8.0, 7.4, 9.0]
+}
+
+print("---- Boletim ----")
+pesquisar_nome = input("Favor Informar um Nome: ")
+
+# Buscando o nome digitado na agenda de contatos/notas
+boletim_resultado = boletim.get(pesquisar_nome, "Nome não Encontrado")
+
+print("--------------------------------------------------------")
+
+# Validando se o resultado da busca foi um sucesso (ou seja, retornou a lista de notas)
+if boletim_resultado != "Nome não Encontrado":
+    # boletim_resultado guarda a lista de notas (ex: [9.0, 7.8, 7.9])
+    notas = boletim_resultado
+    media = sum(notas) / 3
+    
+    print(f"O aluno {pesquisar_nome} obteve a média final de: {media:.2f}")
+else:
+    print(boletim_resultado)
+
+print("--------------------------------------------------------")

@@ -30,3 +30,20 @@ print("""
              ------ Simulador de Juros Compostos -------
 Este script calculará o rendimento de um capital no regime de juros compostos
 --------------------------------------------------------""", end="\n")
+
+
+p = float(input("Favor informar o valor investido: "))
+i = float(input("Favor informar a taxa de juros (ex: 1.5): "))
+t = int(input("Tempo de Investimento (Meses): "))
+
+m = p * (1 + (i/100)) ** t
+
+print(f"""
+---------- Extrato do Investimento -------------
+Capital Inicial (R$): {p}
+Taxa de Juros Mensal (%): {i}
+Tempo de Investimento (meses): {t}
+-----------Resultado da Simulação-----------------
+> Valor Total Acumulado: R$ {m:.2f}
+> Total de Juros Rendidos: R$ {m-p:.2f}     
+      """)

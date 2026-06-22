@@ -22,7 +22,17 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
-print("""
-             ------ Cadastro de Desenvolvedor -------
-Este script estruturará seus dados dentro de um dicionário Python
---------------------------------------------------------""", end="\n")
+# 1. Criamos as perguntas direto alimentando as chaves do dicionário
+cadastro = {
+    "nome": input("Favor informar o seu nome: "),
+    "idade": int(input("Favor informar a sua idade: ")),
+    "cidade": input("Favor informar a sua cidade: "),
+    "tecnologia": input("Favor informar a sua tecnologia favorita: ")
+}
+
+print("--------------------------------------------------------")
+print("Perfil Criado com Sucesso!")
+
+# 2. Lendo os dados direto do dicionário usando f-string
+print(f"O desenvolvedor {cadastro['nome']} tem {cadastro['idade']} anos, mora em {cadastro['cidade']} e sua tecnologia favorita é {cadastro['tecnologia']}.")
+print("--------------------------------------------------------")

@@ -25,3 +25,10 @@ print("""
              ------ Validador Lógico de Crédito -------
 Este script avaliará critérios combinados usando lógica booleana pura
 --------------------------------------------------------""", end="\n")
+
+renda=float(input("Informe a sua Renda: "))
+idade=int(input("Informe a sua Idade: "))
+nome_limpo=input("Possui Nome Limpo(True/False)?")
+
+analise = (nome_limpo == True) and (renda >= 3000.00) or (idade > 21)
+print(f"Resultado da avaliação de Crédito:{analise}")

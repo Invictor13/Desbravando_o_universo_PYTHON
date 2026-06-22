@@ -22,7 +22,16 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
-print("""
-             ------ Analisador de Códigos (Slicing) -------
-Este script extrairá partes de um texto usando fatiamento avançado
---------------------------------------------------------""", end="\n")
+senha = input("Digite o código de 8 caracteres: ").strip()
+
+# Criando as variáveis de fatiamento direto na string para manter o código limpo
+prefixo = senha[:3]       # Pega os índices 0, 1 e 2
+sufixo = senha[-2:]       # Pega os últimos 2 caracteres
+invertido = senha[::-1]   # Inverte a string completamente
+
+print("--------------------------------------------------------")
+print("Análise do Código:")
+print(f"> Prefixo (3 primeiros): {prefixo}")
+print(f"> Sufixo (2 últimos): {sufixo}")
+print(f"> Código Invertido: {invertido}")
+print("--------------------------------------------------------")

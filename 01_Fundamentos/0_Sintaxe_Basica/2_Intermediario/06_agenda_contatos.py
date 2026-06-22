@@ -22,3 +22,25 @@ print("""
              ------ Agenda de Contatos Básica -------
 Este script buscará números de telefone mapeados dentro de um dicionário
 --------------------------------------------------------""", end="\n")
+
+# Cada par chave:valor representa um contato completo na agenda
+contatos = {
+    "Ana": "9999-9999",
+    "Victor": "8888-8888",
+    "Jessica": "7777-7777"
+}
+
+consultar_nome = input("Digite o nome para buscar na agenda: ")
+print("--------------------------------------------------------")
+
+# Usando o método .get() para buscar o nome informado. 
+# Se não achar, ele já retorna a mensagem padrão do enunciado.
+resultado = contatos.get(consultar_nome, "Contato não localizado na agenda.")
+
+# Se o resultado for diferente da mensagem de erro, significa que o contato existe!
+if resultado != "Contato não localizado na agenda.":
+    print(f"Telefone de {consultar_nome}: {resultado}")
+else:
+    print(resultado)
+
+print("--------------------------------------------------------")

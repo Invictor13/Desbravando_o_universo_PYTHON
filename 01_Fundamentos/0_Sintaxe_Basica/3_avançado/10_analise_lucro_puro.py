@@ -31,3 +31,24 @@ print("""
              ------ Analisador de Viabilidade de Fretamento -------
 Este script calculará o balanço financeiro e retornará o status de lucro
 --------------------------------------------------------""", end="\n")
+
+# Entrada dos dados com casting correto
+custo_onibus = float(input("Custo de Fretamento do Ônibus (R$): "))
+valor_ingresso = float(input("Valor do Ingresso por Pessoa (R$): "))
+passageiros = int(input("Quantidade de Passageiros: "))
+
+# 1. Cálculo dos Custos (Taxa fixa de seguro de R$ 15.00 por pessoa)
+custo_total = custo_onibus + (passageiros * 15.00)
+
+# 2. Cálculo das Receitas
+receita_total = passageiros * valor_ingresso
+
+# 3. Indicador Booleano de Lucro Estrito (Receita > Custo)
+viagem_lucrativa = receita_total > custo_total
+
+print("--------------------------------------------------------")
+print("Relatório Estatístico de Viabilidade:")
+print(f"> Custo Total do Evento: R$ {custo_total:.2f}")
+print(f"> Faturamento Bruto Previsto: R$ {receita_total:.2f}")
+print(f"> A viagem trará lucro real? {viagem_lucrativa}")
+print("--------------------------------------------------------")

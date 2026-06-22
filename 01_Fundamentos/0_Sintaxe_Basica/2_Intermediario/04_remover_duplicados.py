@@ -29,3 +29,23 @@ print("""
              ------ Limpador de Duplicadas -------
 Este script identificará e removerá itens repetidos da sua lista
 --------------------------------------------------------""", end="\n")
+lista = []
+n1=input("Favor Informar uma fruta: ")
+lista.append(n1)
+n2=input("Favor Informar uma fruta: ")
+lista.append(n2)
+n3=input("Favor Informar uma fruta: ")
+lista.append(n3)
+n4=input("Favor Informar uma fruta: ")
+lista.append(n4)
+n5=input("Favor Informar uma fruta: ")
+lista.append(n5)
+n6=input("Favor Informar uma fruta: ")
+lista.append(n6)
+
+print("----------- Lista Informada Pelo Usuário ------------")
+print(lista)
+print("----------- Lista Corrigida Sem Repetição -----------")
+lista_corrigida = set(lista)
+lista_ordenada = sorted(lista_corrigida)
+print(lista_ordenada)

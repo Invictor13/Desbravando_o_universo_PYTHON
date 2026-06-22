@@ -27,3 +27,21 @@ print("""
              ------ Unificador de Listas -------
 Este script combinará duas listas diferentes e removerá as duplicadas
 --------------------------------------------------------""", end="\n")
+
+lista1 = ['Victor', 'Jessica', 'Ana']
+lista2 = ['Carlos', 'Victor', 'Mariana']
+
+print("Primeira Lista: ",lista1)
+print("Segunda Lista: ",lista2)
+
+print("\n-------- Validando Informações ---------")
+lista_unificada= lista1 + lista2
+print("Lista Unificada: ", lista_unificada)
+
+print("\n---- Removendo Duplicados ----")
+lista_sem_duplicadas = set(lista_unificada)
+print("Lista Sem Duplicados: ", lista_sem_duplicadas)
+
+print("\n---- Lista Ordenada ----")
+lista_ordenada = sorted(lista_sem_duplicadas)
+print("Lista Ordenada: ",lista_ordenada)

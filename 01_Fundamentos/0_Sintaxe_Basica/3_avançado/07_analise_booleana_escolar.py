@@ -29,3 +29,16 @@ print("""
              ------ Validador Acadêmico Booleano -------
 Este script avaliará critérios de nota e presença usando lógica pura
 --------------------------------------------------------""", end="\n")
+
+print("------ Avaliador --------")
+nota_prova = float(input("Informe a nota da Prova: "))
+nota_trabalho = float(input("Informe a nota do Trabalho: "))
+frequencia = int(input("Informe a Frequência de presenças (%): "))
+print("------------ Calculando -----------")
+
+nota_final = ((nota_prova)*7 + (nota_trabalho)*3)/10
+aprovado = (nota_final>7.0) and (frequencia>75)
+print(f"""
+Média Final Calculada:{nota_final:.2f}      
+Aluno Aprovado: {aprovado}      
+      """)

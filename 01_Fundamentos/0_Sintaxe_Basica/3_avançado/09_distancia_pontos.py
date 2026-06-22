@@ -27,3 +27,32 @@ print("""
              ------ Calculadora de Distância Cartesiana -------
 Este script calculará a menor distância entre dois pontos em um plano
 --------------------------------------------------------""", end="\n")
+print("""Informações Iniciais:
+      -Ponto A (x1, y1)  
+      -Ponto B (x2, y2)
+      """)
+
+pontoA_x1 = float(input("Informe o valor de X1 do ponto A: "))
+pontoA_y1 = float(input("Informe o valor de Y1 do ponto A: "))
+print("\033[H\033[J", end="")
+
+print(f"""Informações Atualizadas:
+      -Ponto A ({pontoA_x1},{pontoA_y1} )  
+      -Ponto B (x2, y2)
+      """, end="\n")
+
+pontoB_x1 = float(input("Informe o valor de X1 do ponto B: "))
+pontoB_y1 = float(input("Informe o valor de Y1 do ponto B: "))
+print("\033[H\033[J", end="")
+
+print(f"""Informações Atualizadas:
+      -Ponto A ({pontoA_x1},{pontoA_y1} )  
+      -Ponto B ({pontoB_x1},{pontoB_y1})
+      """,end="\n")
+
+distancia = ((pontoB_x1 - pontoA_x1)**2 + (pontoB_y1 - pontoA_y1)**2)**0.5
+print(f"""
+--------------- Cálculo de Geometria Analítica-------------------------
+    > A distância entre o Ponto A e o Ponto B é de: {distancia:.2f}
+-----------------------------------------------------------------------     
+""")

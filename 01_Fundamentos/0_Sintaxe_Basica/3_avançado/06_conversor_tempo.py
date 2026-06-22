@@ -23,3 +23,18 @@ print("""
              ------ Conversor de Segundos para Tempo -------
 Este script transformará segundos brutos em horas, minutos e segundos
 --------------------------------------------------------""", end="\n")
+
+tempo_segundos = int(input("Digite a quantidade de segundos: "))
+
+# Aplicação da lógica de divisões sucessivas:
+horas = tempo_segundos // 3600
+segundos_restantes = tempo_segundos % 3600
+
+minutos = segundos_restantes // 60
+segundos_finais = segundos_restantes % 60
+
+print("--------------------------------------------------------")
+print("Conversão de Tempo:")
+print(f"> {tempo_segundos} segundos equivalem a exatamente:")
+print(f"> {horas} hora(s), {minutos} minuto(s) e {segundos_finais} segundo(s).")
+print("--------------------------------------------------------")

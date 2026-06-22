@@ -17,10 +17,36 @@ Exemplo de Execução:
     > Centena: 5
     > Dezena: 8
     > Unidade: 2
-"""
 
+Como resolver isso matematicamente?
+Para isolar a Centena, Dezena e Unidade sem usar texto, nós usamos os operadores de Divisão Inteira (//) e o 
+Resto da Divisão (%).
+Olha que lógica massa:
+
+Unidade: Qualquer número resto da divisão por 10 (% 10) sobra exatamente o último dígito. (Ex: $582 \div 10$ dá 58 e sobra 2).
+
+Dezena: Se dividirmos o número inteiro por 10 (// 10), pegamos os dois primeiros dígitos (Ex: $582 // 10 = 58$). 
+Se pegarmos o resto disso por 10 (% 10), isolamos o do meio! (Ex: $58 \div 10$ dá 5 e sobra 8).
+
+Centena: É só pegar a divisão inteira por 100 (// 100). (Ex: $582 // 100 = \mathbf{5}$).
+
+"""
 # Desenvolva o seu código abaixo:
 print("""
              ------ Quebrador de Números Matemático -------
 Este script isolará os dígitos de um número usando operadores aritméticos
 --------------------------------------------------------""", end="\n")
+
+n = int(input("Digite um número entre 100 e 999: "))
+
+# A mágica da matemática pura aplicada ao Python:
+unidade = n % 10
+dezena = (n // 10) % 10
+centena = n // 100
+
+print("--------------------------------------------------------")
+print(f"Decomposição Matemática do Número {n}:")
+print(f"> Centena: {centena}")
+print(f"> Dezena: {dezena}")
+print(f"> Unidade: {unidade}")
+print("--------------------------------------------------------")
