@@ -28,5 +28,5 @@ id_numero=numero%2
 
 print("--------------------------------------------------------",end="\n")
 print(f"O número é Par?", id_numero == 0)
-print(f"O número {numero} é maior que 10?", id_numero > 10)
+print(f"O número {numero} é maior que 10?", numero > 10)
 print("--------------------------------------------------------",end="\n")

@@ -41,4 +41,5 @@ aprovado = (nota_final>7.0) and (frequencia>75)
 print(f"""
 Média Final Calculada:{nota_final:.2f}      
 Aluno Aprovado: {aprovado}      
+-----------------------------------------------
       """)

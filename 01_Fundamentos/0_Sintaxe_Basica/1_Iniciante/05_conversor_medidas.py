@@ -25,7 +25,7 @@ Este Script transforma metros em Centímetros e Milímetros
 
 medida_m = float(input("Informe a medida em Metros: "))
 medida_cm = medida_m*100
-medida_mm = medida_cm*100
+medida_mm = medida_cm*10
 
 print("--------------------------------------------------------",end="\n")
 print(f"""

@@ -30,7 +30,7 @@ Este script ocultará os dígitos centrais de um cartão e validará o seu forma
 numero_cartao = input("Informe o número do Cartão: ").strip()
 verificador_digitos = len(numero_cartao)
 prefixo = numero_cartao[0:4]
-sufixo = numero_cartao[-2:]
+sufixo = numero_cartao[-4:]
 validador = (verificador_digitos==16)
 
 print(f"""
@@ -38,5 +38,6 @@ print(f"""
 Número do Cartão: {numero_cartao}
 --------- Mascarando Dados Sensísveis ------------
 Cartão Máscarado:{prefixo}********{sufixo}
-Cartão com tamanho válido:{validador}     
+Cartão com tamanho válido:{validador}
+--------------------------------------------------   
       """)
