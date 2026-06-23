@@ -24,5 +24,35 @@ Exemplo de Execução:
     > Ponto [Linha 3, Coluna 3] = X
     --------------------------------------------------------
 """
-
 # Desenvolva o seu código abaixo:
+lista1=[]
+lista2=[]
+lista3=[]
+
+print("""
+----------------------------- Radar ---------------------------------
+Observe a matriz abaixo, e suas coordenadas espaciais:
+                    [1,1][1,2][1,3]
+                    [2,1][2,2][2,3]
+                    [3,1][3,2][3,3]      
+--------------------------------------------------------------------
+Por favor, informe os valores de acordo com a posição da coordenada     
+--------------------------------------------------------------------""")
+
+for i in range(0,3):
+    for j in range(0,3):
+        valor = int(input(f"Informe um número Inteiro para a coordenada{i+1,j+1}: "))
+        if(i==0):
+            lista1.append(valor)
+        if(i==1):
+            lista2.append(valor)
+        if(i==2):
+            lista3.append(valor)
+
+print(f"""
+--------------------- Radar Atualizado -----------------------------      
+                    {lista1}
+                    {lista2}
+                    {lista3}
+--------------------------------------------------------------------""")
+

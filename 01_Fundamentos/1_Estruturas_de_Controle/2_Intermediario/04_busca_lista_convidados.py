@@ -23,3 +23,24 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
+
+convidados = ['Victor', 'Jessica', 'Ana', 'Carlos', 'Mariana']
+
+print("""-------------- Identificador de Convidados ------------------""")
+nome_visitante = input("Favor Informar um Nome: ")
+validador = False
+
+print("--------------------------------------------------------")
+print("Procurando na lista VIP...")
+
+for nome in convidados:
+    if nome.lower() == nome_visitante_lower():
+        validador = True
+        print("> Usuário encontrado! Interrompendo busca...")
+        break
+
+if validador:
+    print(f"ENTRADA LIBERADA: {nome_visitante} é uma convidada VIP.")
+else:
+    print(f"ENTRADA NEGADA: {nome_visitante} não está na lista VIP.")
+print("--------------------------------------------------------")

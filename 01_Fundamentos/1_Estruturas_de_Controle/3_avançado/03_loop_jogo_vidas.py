@@ -26,5 +26,48 @@ Exemplo de Execução:
     > GAME OVER! Suas vidas acabaram. Pontuação Final: 20 pontos.
     --------------------------------------------------------
 """
-
 # Desenvolva o seu código abaixo:
+
+vida=3
+i=1
+
+while(vida > 0):
+    print(f"""
+----------- {i}ª Rodada -------------
+> Vida Atual: {vida}
+-------------------------------------
+Por favor, informe uma ação:
+> (1) - Avançar
+> (2) - Recuar
+> (3) - Caminhar para a Direita
+> (4) - Caminhar para a Esquerda""")
+    
+    escolha = input("Escolha uma opção: ") 
+    if (escolha == "1"):
+        print("""
+-----------------------------------
+> Opção Escolhida: Avançar
+> Sucesso! Você avançou de fase!
+> ...e ganhou +10 de vida                       
+            """)
+        vida +=10
+
+    elif (escolha == "2") or (escolha == "3") or (escolha == "4"):
+        print("""
+-----------------------------------
+> Armadilha detetada! Você perdeu 10 vida.                    
+            """)
+        vida -= 10
+    
+    else:
+        print("Opção Invalida")
+    
+    i +=1
+
+    if(vida <= 0):
+        print("""
+-----------------------------------
+>Game Over - Você Morreu!
+-----------------------------------              
+                      
+              """)

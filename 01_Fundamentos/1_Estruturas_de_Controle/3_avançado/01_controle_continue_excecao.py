@@ -23,5 +23,9 @@ Exemplo de Execução:
     ...
     --------------------------------------------------------
 """
-
 # Desenvolva o seu código abaixo:
+for contador in range (1,16):
+    if (contador%5==0):
+        print("[Aviso: Omitindo múltiplo de 5 de acordo com a regra]")
+    else:
+        print(f"Número: {contador}")

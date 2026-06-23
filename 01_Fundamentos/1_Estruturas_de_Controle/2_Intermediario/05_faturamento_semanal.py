@@ -27,3 +27,33 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
+
+faturamento_semanal = [0,0,0,0]
+entrada_diaria=[]
+dias_acima_media =[]
+
+print("--------- Faturamento Mensal -----------")
+for i in range (1,29):
+    n = float(input(f"Digite o faturamento do Dia {i} (R$): "))
+    entrada_diaria.append(n)
+
+    if (i>=1) and (i<=7):
+        faturamento_semanal[0] = faturamento_semanal[0] + n
+    elif (i>=8) and (i<=14):
+        faturamento_semanal[1] = faturamento_semanal[1] + n
+    elif (i>=15) and (i<=21):
+        faturamento_semanal[2] = faturamento_semanal[2] + n
+    elif (i>=22) and (i<=29):
+        faturamento_semanal[3] = faturamento_semanal[3] + n
+
+faturamento_mensal = sum(faturamento_semanal)
+media_entrada = faturamento_mensal/28
+
+print(faturamento_mensal)
+print(media_entrada)
+
+for valor in entrada_diaria:
+    if (valor > media_entrada):
+        dias_acima_media.append(valor)
+        valor += 1
+print(dias_acima_media)

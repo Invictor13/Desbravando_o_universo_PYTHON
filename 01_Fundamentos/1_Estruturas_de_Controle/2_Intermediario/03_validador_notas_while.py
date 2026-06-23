@@ -24,5 +24,28 @@ Exemplo de Execução:
     > Média Final do Aluno: 8.00
     --------------------------------------------------------
 """
-
 # Desenvolva o seu código abaixo:
+
+lista=[]
+i=1
+n=0.0
+
+while ( n >= 0.0):
+    print("""----------------- Lançamento de Notas ---------------------""")
+    n = float(input(f"Digite a {i}ª Nota (ou um número negativo para parar): "))
+    if(n >= 0.0):
+        lista.append(n)
+        i += 1
+    else:
+        break
+
+lista_total = len(lista)
+lista_soma = sum(lista)
+lista_media = lista_soma/lista_total
+
+print(f"""
+----------------- Analise Finalizada --------------------
+> Total de Notas Válidas Processadas: {lista_total}
+> Média Final do Aluno: {lista_media}
+---------------------------------------------------------            
+""")

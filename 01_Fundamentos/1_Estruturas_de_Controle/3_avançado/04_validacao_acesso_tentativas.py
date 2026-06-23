@@ -24,5 +24,27 @@ Exemplo de Execução:
     ALERTA: Tentativas esgotadas. CONTA BLOQUEADA!
     --------------------------------------------------------
 """
-
 # Desenvolva o seu código abaixo:
+
+senha = "AcessoVIP2026"
+tentativas = 2
+print("-------- Seja Bem Vindo ---------")
+for n in range(0,3):
+    senha_user=input("Favor informar uma senha: ")
+    if( senha_user == senha):
+        print("""
+-----------------------------------------
+> Acesso Garantido.
+> Seja Bem vindo
+-----------------------------------------""")
+    else:
+        print(f"""
+ -----------------------------------------
+> Acesso Negado.
+> você possui mais {tentativas} tentativa(s).
+-----------------------------------------""")
+    tentativas-=1
+print("""
+------------------------------------------------
+> ALERTA: Tentativas esgotadas. CONTA BLOQUEADA!
+------------------------------------------------""")

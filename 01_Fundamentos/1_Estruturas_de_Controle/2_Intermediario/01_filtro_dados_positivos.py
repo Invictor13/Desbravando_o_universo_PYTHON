@@ -21,3 +21,17 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
+
+lista_original = [12, -5, 0, 8, -3, 21, -1, 4]
+lista_filtrada = []
+
+for n in lista_original:
+    if(n>0):
+        lista_filtrada.append(n)
+print(f"""
+------------ Lista Original ---------------
+Lista Original: {lista_original}
+--------- Filtrando Positivos -------------
+Lista Filtrada: {lista_filtrada}
+-------------------------------------------
+""")

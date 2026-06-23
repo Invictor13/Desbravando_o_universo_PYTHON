@@ -24,5 +24,34 @@ Exemplo de Execução:
     > Operação encerrada pelo usuário. Sistema finalizado.
     --------------------------------------------------------
 """
-
 # Desenvolva o seu código abaixo:
+
+print("""
+-------------------- Simulador de Caixa ---------------------
+Seja bem vindo,
+Para prosseguir com as operações, favor seguir as instruções      
+--------------------------------------------------------------""")
+saldo_disponivel=500.00
+i=10
+
+while (i != 0) or (saldo_disponivel <= 0):
+    print(f"""
+----------- Saldo Disponível: {saldo_disponivel} -------------
+""")
+    saque = float(input("Informe o Valor do Saque: "))
+
+    if (saque < saldo_disponivel):
+        saldo_disponivel = saldo_disponivel - saque
+    
+    elif(saque == saldo_disponivel):
+        saldo_disponivel = saldo_disponivel - saque
+        print(f"""
+----------- Saldo Disponível: {saldo_disponivel} -------------""")
+        break
+    else:
+        print("> Saldo Insuficientes, tente um novo valor")
+
+print("""
+-------------------------------------------------------------
+> Operação encerrada pelo usuário. Sistema finalizado.
+-------------------------------------------------------------""")

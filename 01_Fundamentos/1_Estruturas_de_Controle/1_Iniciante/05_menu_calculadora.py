@@ -33,3 +33,44 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
+
+print("""
+------------ Calculadora Simples ---------------      
+Seja Bem vindo,
+Siga as instruções para utilizar a calculadora    
+------------------------------------------------            
+""")
+
+i=0
+
+while (i != 4):
+    print("-------------Informe os Valores--------------")
+    x = float(input("Informe o 1º Valor: "))
+    y = float(input("Informe o 2º Valor: "))
+    print(f"""
+----------------------------------------------
+Menu de Operações:
+    [ 1 ] Somar
+    [ 2 ] Multiplicar
+    [ 3 ] Novos Números
+    [ 4 ] Sair do Programa
+-----------------------------------------------""")
+    i = int(input("Informe uma Opção: "))
+
+    if (i == 1):
+        soma = x + y
+        print(f"Resultado da Soma: {soma} ")
+    
+    elif (i == 2):
+        multiplicacao = x * y
+        print(f"Resultado da Multiplicação: {multiplicacao} ")
+    
+    elif (i == 3):
+        print("Resetando Valores!")
+        pass
+
+    elif ( i == 4):
+        print("> Saindo do sistema... Programa Encerrado.")
+
+    else:
+        print("Opção Inválida! Tente Novamente...")
