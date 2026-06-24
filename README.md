@@ -25,14 +25,15 @@ graph LR
 ## 🗺️ 2. Navegação no Repositório
 
 | Diretório Principal / Subpasta | Descrição |
-| :--- | :--- |
-| 📁 **[01_Fundamentos_Desafios](./01_Fundamentos_Desafios)** | O coração do aprendizado (Exercícios práticos em código) |
-| └── 📁 `0_SintaxeBasica/` | Variáveis, tipos de dados e operadores básicos |
-| └── 📁 `1_Estruturas_Controle/` | Tomadas de decisão (if/else) e laços de repetição (for/while) |
-| └── 📁 `2_Funcoes/` | Modularização, escopo e boas práticas com funções |
-| └── 📁 `3_POO/` | Programação Orientada a Objetos aplicada ao mundo real |
-| 📁 **[02_Projetos_Praticos](./02_Projetos_Praticos)** | Projetos reais que integram múltiplos conceitos da linguagem |
-| 📁 **[03_Comunidade](./03_Comunidade)** | O seu laboratório pessoal e o espaço do novos devs |
+| ------ | ------ |
+| 📁 01_Fundamentos | O coração do aprendizado (Exercícios práticos em código) |
+| └── 📁 0_SintaxeBasica/ | Variáveis, tipos de dados e operadores básicos |
+| └── 📁 1_Estruturas_Controle/ | Tomadas de decisão (if/else) e laços de repetição (for/while) |
+| └── 📁 2_Funcoes/ | Modularização, escopo e boas práticas com funções |
+| └── 📁 3_POO/ | Programação Orientada a Objetos aplicada ao mundo real |
+| 📁 02_Bibliotecas | Pasta com foco em manipulação de dados e layouts |
+| 📁 03_Projetos_Práticos | Projetos reais e desafios que integram múltiplos conceitos |
+| 📁 04_Comunidade | O seu laboratório pessoal e o espaço dos novos devs |
 
 > 💡 **Observação:** Os exercícios de fundamentos e os desafios possuem uma **dificuldade progressiva**, preparando você de forma sólida para encarar os projetos práticos. Se precisar de suporte teórico antes de codar, acesse o nosso [Portal de Estudos na Wiki](../../wiki).
 
