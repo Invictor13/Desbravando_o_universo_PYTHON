@@ -21,3 +21,28 @@ Exemplo de Execução:
 --------------------------------------------------------
 """
 # Desenvolva a sua função e o seu código abaixo:
+
+# A mágica acontece aqui: 'porcentagem=10' define o valor padrão!
+def calcular_gorjeta(valor_conta, porcentagem=10):
+    gorjeta = valor_conta * (porcentagem / 100)
+    return gorjeta
+
+print("""
+---------------- Calculadora de Gorjeta ----------------
+""")
+
+valor_informado = float(input("Informe o Valor da Conta (R$): "))
+
+print("""
+---------------- Resultados dos Testes -----------------
+""")
+
+# Teste 1: Omitindo o segundo parâmetro (O Python usa o 10% padrão)
+gorjeta_padrao = calcular_gorjeta(valor_informado)
+print(f"> Teste 1 (Gorjeta padrão 10%): R$ {gorjeta_padrao:.2f}")
+
+# Teste 2: Passando o segundo parâmetro (O Python sobrescreve o 10 por 15)
+gorjeta_customizada = calcular_gorjeta(valor_informado, 15)
+print(f"> Teste 2 (Gorjeta custom 15%): R$ {gorjeta_customizada:.2f}")
+
+print("--------------------------------------------------------")

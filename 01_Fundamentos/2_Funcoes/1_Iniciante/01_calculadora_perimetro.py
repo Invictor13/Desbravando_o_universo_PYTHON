@@ -18,3 +18,75 @@ Exemplo de Execução:
 --------------------------------------------------------
 """
 # Desenvolva a sua função e o seu código abaixo:
+def Calc_Perimetro(base,altura):
+    perimetro=(2*(base+altura))
+    return perimetro
+
+
+print("""
+---------------- Simulando Terreno ----------------------      
+
+        _________(X metros)__________
+        |                           |
+        |                           |
+        |                           (Y metros)
+        |                           |
+        |___________________________|
+      
+---------------------------------------------------------   
+> Precisamos preencher as medidas de X e Y:
+---------------------------------------------------------           
+      """)
+x = int(input("Por favor, informe o valor da Base(X): "))
+y = int(input("Por favor, informe o valor da altura(y): "))
+perimetro_calculado = Calc_Perimetro(x,y)
+
+if(x>y):
+    print(f"""
+---------------- Terreno Informado ----------------------      
+
+            _________({x} metros)________
+            |                           |
+            |                           |
+            |                           ({y} metros)
+            |                           |
+            |___________________________|
+        
+---------------------------------------------------------        
+Perimetro do Terreno = {perimetro_calculado} metros
+---------------------------------------------------------          
+        """)
+    
+elif(x<y):
+    print(f"""
+---------------- Terreno Informado ----------------------      
+
+            ______({x} metros)_____
+            |                     |
+            |                     |
+            |                     |
+            |                     ({y} metros)
+            |                     |
+            |                     |
+            |_____________________|
+        
+---------------------------------------------------------        
+Perimetro do Terreno = {perimetro_calculado} metros
+---------------------------------------------------------          
+        """)
+    
+else:
+        print(f"""
+---------------- Terreno Informado ----------------------      
+
+            ____({x} metros)___
+            |                 |
+            |                 |
+            |                 ({y} metros)
+            |                 |
+            |_________________|
+        
+---------------------------------------------------------        
+Perimetro do Terreno = {perimetro_calculado} metros
+---------------------------------------------------------          
+        """)

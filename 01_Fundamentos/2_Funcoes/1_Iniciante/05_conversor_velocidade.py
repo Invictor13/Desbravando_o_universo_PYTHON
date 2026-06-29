@@ -18,3 +18,15 @@ Exemplo de Execução:
 --------------------------------------------------------
 """
 # Desenvolva a sua função e o seu código abaixo:
+
+def kmh_para_ms(velocidade_kmh):
+    conversor = velocidade_kmh/3.6
+    return conversor
+
+print("------ Conversor KM/H para M/S --------")
+x_kmh = int(input("Informe a Sua Velocidade(KM/H): "))
+x_ms = kmh_para_ms(x_kmh)
+
+print(f"""-------------------------------------------------------
+{x_kmh:.2f} km/h equivalem a exatamente: {x_ms:.2f} m/s
+-------------------------------------------------------""")

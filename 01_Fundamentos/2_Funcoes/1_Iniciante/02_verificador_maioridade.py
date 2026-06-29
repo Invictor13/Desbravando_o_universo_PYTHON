@@ -19,3 +19,26 @@ Exemplo de Execução:
 --------------------------------------------------------
 """
 # Desenvolva a sua função e o seu código abaixo:
+
+def eh_maior_de_idade(idade):
+    verificador_idade = (x>=18)
+    return(verificador_idade)
+
+
+print("------- Verificador de Idade --------")
+x = int(input("Informe a sua idade:: "))
+verificador = eh_maior_de_idade(x)
+
+if (verificador == True):   
+    print(f"""
+----------------------------------------------------
+> Status: Acesso Liberado ( Usuário Maior de Idade).
+----------------------------------------------------
+      """)
+
+else:
+    print(f"""
+---------------------------------------------------
+> Status: Acesso Negado ( Usuário Menor de Idade).
+---------------------------------------------------
+      """)    

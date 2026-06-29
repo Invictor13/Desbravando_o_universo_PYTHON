@@ -22,3 +22,28 @@ Exemplo de Execução:
 --------------------------------------------------------
 """
 # Desenvolva a sua função e o seu código abaixo:
+
+def filtrar_ativos(usuarios):
+    base_ativos = []
+    for usuario in usuarios:
+        if usuario.get("ativo") is True:
+            base_ativos.append(usuario.get("nome"))
+    return base_ativos
+
+
+base_original = [
+    {"nome": "Victor", "ativo": True},
+    {"nome": "Jessica", "ativo": True},
+    {"nome": "Eros", "ativo": False},
+    {"nome": "Edalmo", "ativo": True},
+    {"nome": "Cida", "ativo": True},
+    {"nome": "Bia", "ativo": False},
+]
+
+print("------ Base de Dados Original ----------")
+for usuario in base_original:
+    print(f"Nome: {usuario['nome']:<8} Ativo: {usuario['ativo']}")
+print("----------------------------------------")
+
+filtro = filtrar_ativos(base_original)
+print(f"Lista de Usuários Ativos: {filtro}")

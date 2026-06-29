@@ -21,3 +21,29 @@ Exemplo de Execução:
 --------------------------------------------------------
 """
 # Desenvolva a sua função e o seu código abaixo:
+
+def gerar_relatorio_numerico(lista_numeros):
+    media_lista = sum(lista_numeros)/len(lista_numeros)
+    maior_numero = max(lista_numeros)
+    menor_numero = min(lista_numeros)
+
+    dicionario_personalizado = {
+        'Media' : {media_lista},
+        'Maior' : {maior_numero},
+        'Menor' : {menor_numero}
+    }
+    return dicionario_personalizado
+
+
+lista=[]
+print("--------- Criando a Lista Personalizada -------------")
+lista_tamanho = int(input("Informe o Tamanho da sua lista: "))
+for i in range(1,lista_tamanho+1):
+    n = int(input(f"[{i} de {lista_tamanho}]Favor Informar um número Inteiro: "))
+    lista.append(n)
+relatorio = gerar_relatorio_numerico(lista)
+print(f"""
+-------------------------------------------------------------------------
+> Relatório Processado: {relatorio}
+-------------------------------------------------------------------------
+      """)

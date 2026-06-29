@@ -19,3 +19,15 @@ Exemplo de Execução:
 --------------------------------------------------------
 """
 # Desenvolva a sua função e o seu código abaixo:
+
+def gerar_id_sistema(nome, ano_nascimento):
+    id_criacao = nome+"_"+ano_nascimento
+    return id_criacao
+
+print("-------- Gerador de ID ----------")
+x = input("Informe seu Nome: ").lower().replace(" ","")
+y = input("Digite o Ano de Nascimento: ").replace(" ","")
+id_user = gerar_id_sistema(x,y)
+print(f"""---------------------------------------------------------
+> ID de Sistema Gerado:{id_user}
+---------------------------------------------------------""")
