@@ -24,14 +24,14 @@
         [1.2.2] Em python não existe um método nativo, por isso, importamos a biblioteca 'os'
         [1.2.3] A função verifica o sistema operacional do usuário e aplica o método corresponte do terminal (cls ou clear)
 
+        [Datetime]
+        [1.3.1] Essa biblioteca possui a função de fornecer: Data e Hora
+
 -----------------------------------------------------------------------------------------------------------------------"""
-
-
-l= "-"*60
-l_t="-"*20
-banco = True
-
 import os
+from datetime import datetime
+
+
 def limpar_tela():
     # Verifica se o sistema é Windows ('nt')
     if os.name == 'nt':
@@ -40,8 +40,10 @@ def limpar_tela():
     else:
         os.system('clear')
 
-# Chamando a função para limpar o terminal
-limpar_tela()
+l= "-"*60
+l_t="-"*20
+banco = True
+
 
 
 """---------------------------------- [2] Dicionário para Cadastrar os Clientes ----------------------------------------------------
@@ -56,10 +58,19 @@ limpar_tela()
         [2.5] NOVAMENTE, NUNCA UTILIZE DADOS SENSÍVEIS OU SENHAS DENTRO DO SEU SCRIPT!!!!!!!!!!
 
 -------------------------------------------------------------------------------------------------------------------------"""
+banco_de_conta_corrente = {
 
+    123456789 : {"Agencia":0001,
+                 "Usuário": "victor.viana"                 
+                 }
+}
 
 banco_de_clientes = {
-    "victor.viana" : {"Nome": "Victor Ladislau Viana", "Senha":"123", "Saldo": 1000.00, "Extrato": []}  
+"victor.viana" : {  "Nome": "Victor Ladislau Viana",
+                    "Senha":"123", "Saldo": 1000.00,
+                    "Extrato": [], 
+                    "CPF"=12312312312,
+                    "Endereço"="Rua Pedro Eugênio de Oliveira, Bonfim, Angra dos Reis - RJ"}  
     }
 
 
