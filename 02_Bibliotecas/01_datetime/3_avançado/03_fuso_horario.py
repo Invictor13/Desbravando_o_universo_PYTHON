@@ -18,19 +18,18 @@ Exemplo de Execução:
     > Horário em Tóquio (Japão): 03:30 (do dia seguinte)
     --------------------------------------------------------
 """
-
-# Desenvolva o seu código abaixo:
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-# Pega o momento exato e atrela ao fuso horário brasileiro
-hora_sp = datetime.now(ZoneInfo("America/Sao_Paulo"))
+l = "-"*60
+l_t = "-"*20
 
-# Converte o mesmo momento para o fuso do Japão
-hora_tokyo = hora_sp.astimezone(ZoneInfo("Asia/Tokyo"))
+horario_sp = datetime.now(ZoneInfo("America/Sao_Paulo"))
+print(f"""{l_t}Horário de São Paulo{l_t}
+Horário Atual: {horario_sp.strftime("%H:%M - %d/%m/%Y")}
+{l}""")
 
-print("-" * 56)
-print("> Relógio Global Sincronizado:")
-print(f"> Horário em São Paulo (Brasil): {hora_sp.strftime('%H:%M - %d/%m/%Y')}")
-print(f"> Horário em Tóquio (Japão): {hora_tokyo.strftime('%H:%M - %d/%m/%Y')}")
-print("-" * 56)
+horario_tokyo = datetime.now(ZoneInfo("Asia/Tokyo"))
+print(f"""{l_t}Horário de Tokyo{l_t}
+Horário Atual: {horario_tokyo.strftime("%H:%M - %d/%m/%Y")}
+{l}""")

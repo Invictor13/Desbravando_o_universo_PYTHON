@@ -18,12 +18,26 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
+
 from datetime import datetime, timedelta
 
-hoje = datetime.now()
-vencimento = hoje + timedelta(days=7)
+l="-"*60
+l_t="-"*25
 
-print("-" * 56)
-print(f"> Data da Compra: {hoje.strftime('%d/%m/%Y')}")
-print(f"> O boleto vence no dia: {vencimento.strftime('%d/%m/%Y')}")
-print("-" * 56)
+agora = datetime.now()
+vencimento = agora + timedelta(days=7)
+
+
+print(f"""
+{l_t} Calculando Data de Pagemento {l_t}
+Neste exercicio, ensinaremos a manipular datas
+
+{l_t} O código armazenará a data atual {l_t}
+
+Data Atual: {agora.strftime('%d/%m/%Y')}
+
+{l_t} Adicionando +7 dias {l_t}
+
+Data de Vencimento: {vencimento.strftime('%d/%m/%Y')}
+
+{l}""")

@@ -20,6 +20,36 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
+
+from datetime import datetime
+
+l="-"*60
+l_t="-"*20
+
+print(f"""
+{l_t} Data de Nascimento {l_t}
+    Olá,
+      Seja Bem vindo ao módulo de DateTime.
+      Vamos ensinar como criar variáveis personalizados de tempos
+{l}""")
+
+ano_nascimento = int(input("Informe o Ano que você nasceu: "))
+mes_nascimento = int(input("Informe o mes que você nasceu: "))
+dia_nascimento = int(input("Informe o dia que você nasceu: "))
+
+data_nascimento = datetime(ano_nascimento, mes_nascimento, dia_nascimento)
+
+print(f"""
+
+{l_t} Data de Nascimento Personalizada {l_t}
+ > Data Registrada no sistema: {data_nascimento}
+{l}""")
+
+
+
+
+
+"""
 from datetime import datetime
 
 dia = int(input("Digite o dia: "))
@@ -31,3 +61,4 @@ data_nascimento = datetime(ano, mes, dia)
 print("-" * 56)
 print(f"> Data registrada no sistema: {data_nascimento}")
 print("-" * 56)
+"""

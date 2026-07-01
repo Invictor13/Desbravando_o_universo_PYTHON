@@ -17,13 +17,29 @@ Exemplo de Execução:
 """
 
 # Desenvolva o seu código abaixo:
-from datetime import datetime
 
-hoje = datetime.now()
-fim_de_ano = datetime(hoje.year, 12, 31)
+from datetime import datetime, timedelta
 
-diferenca = fim_de_ano - hoje
+l="-"*60
+l_t="-"*20
 
-print("-" * 56)
-print(f"> Status: Faltam {diferenca.days} dias para acabar o ano!")
-print("-" * 56)
+agora = datetime.now()
+fim_de_ano = datetime(agora.year,12,31)
+diferenca = fim_de_ano - agora
+
+print(f"""
+{l_t} Contagem Regressiva - Fim Do Ano {l_t}
+
+[1] Utilizamos uma variável 'agora' para armazenar a data/hora atual.
+[2] Em seguida, criamos uma variável 'fim_de_ano', para coletar o ultimo dia do ano.
+[3] Realziamos uma subtração entre as duas variáveis criadas.
+
+Data Atual: {agora.strftime("%d/%m/%Y")}
+Final do Ano: {fim_de_ano.strftime("%d/%m/%Y")}
+
+{l_t} Saída {l_t}
+
+Faltam exatamente {diferenca.days} dias para o fim de {agora.year}
+
+{l}""")
+

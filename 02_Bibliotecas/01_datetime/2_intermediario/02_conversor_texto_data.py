@@ -17,17 +17,25 @@ Exemplo de Execução:
     > O ano informado no texto foi: 2026
     --------------------------------------------------------
 """
-
 # Desenvolva o seu código abaixo:
+
 from datetime import datetime
 
-texto_data = input("Digite uma data (DD/MM/AAAA): ")
+l_t = "-"*20 
+l = "-"*60
+data_texto = input("Digite uma Data: DD/MM/AAAA: ")
 
 try:
-    data_convertida = datetime.strptime(texto_data, "%d/%m/%Y")
-    print("-" * 56)
-    print("> Conversão bem-sucedida!")
-    print(f"> O ano informado no texto foi: {data_convertida.year}")
-    print("-" * 56)
+    data_convertida = datetime.strptime(data_texto, "%d/%m/%Y")
+    print(f"""
+{l_t} Conversão Bem Sucedida {l_t}
+> Ano Informado em Formato Texto: {data_convertida.year}
+{l}""")
+
 except ValueError:
-    print("> Formato inválido! Tente novamente respeitando o padrão DD/MM/AAAA.")
+    print("> Formato Inválido de Data! Respeite o padrão: DD/MM/AAAA")
+
+
+
+
+
