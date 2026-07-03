@@ -1,16 +1,14 @@
 """-------------------------------------------------------------------------------------------------------------------------
-|                                       Projeto DIO - Sistema Bancário 0.1                                                  |              
+|                                       Projeto DIO - Sistema Bancário 0.5                                                  |              
                                                                           
     Entendendo o Desafio:
         1 - Criar um sistema Bancário com operações de Saque, depósito e visualização de extrato
         2 - O cliente deve realizar apenas 3 saques por dia, com um valor máximo de R$ 500,00 por saque.
-        3 - O extrato deve listar todas as operações realizadas na conta
+        3 - O extrato deve listar todas as operações realizadas na conta assim como o horário e data.
 
         OBS: A princípio não serão aplicados conceitos de Interfáce gráfica e nem Segurança de Dados
                                           
 |                                Desenvolvedor: Invictor13 (Victor Ladislau Viana)                                          |
-
-
 
 ------------------------------- [1] Variáveis e Funções para Controle de Ambiente ------------------------------------
 
@@ -48,29 +46,35 @@ banco = True
 
 """---------------------------------- [2] Dicionário para Cadastrar os Clientes ----------------------------------------------------
 
-        [Organizando a Base de Dados]
-        [2.1] Utilizamos um dicionário com um chaveamento por login (nome + último nome)
+        [Modelagem Relacional de Dados]
+        [2.1] banco_de_clientes: Utiliza chaveamento exclusivo por "login" (nome.sobrenome), guardando dados de perfil.
+        [2.2] banco_de_conta_corrente: Utiliza chaveamento por número sequencial inteiro (ID da Conta). 
+        [2.3] Faz um vínculo lógico através do campo "Usuário", apontando para o login correspondente no banco de clientes.
         
         [Alerta Sobre a Segurança dos Dados]
-        [2.2] NUNCA COLOQUE DADOS SENSÍVEIS DIRETAMENTE NO CÓDIGO!
-        [2.3] Apesar de ter informado a senha dentro do .py, a intenção é mostrar o funcionamento do banco.
-        [2.4] Em atualizações Futuras, ensinarei a proteger dados sensíveis dos usuários da maneira CORRETA.
-        [2.5] NOVAMENTE, NUNCA UTILIZE DADOS SENSÍVEIS OU SENHAS DENTRO DO SEU SCRIPT!!!!!!!!!!
+        [2.4] NUNCA COLOQUE DADOS SENSÍVEIS DIRETAMENTE NO CÓDIGO!
+        [2.5] Apesar de ter informado a senha dentro do .py, a intenção é mostrar o funcionamento do banco.
+        [2.6] NOVAMENTE, NUNCA UTILIZE DADOS SENSÍVEIS OU SENHAS DENTRO DO SEU SCRIPT!!!!!!!!!!
 
 -------------------------------------------------------------------------------------------------------------------------"""
 banco_de_conta_corrente = {
 
-    123456789 : {"Agencia":0001,
-                 "Usuário": "victor.viana"                 
-                 }
+    1 : {"Agencia":"0001",
+         "Usuário": "victor.viana"                 
+        }
+
+    
 }
 
 banco_de_clientes = {
 "victor.viana" : {  "Nome": "Victor Ladislau Viana",
-                    "Senha":"123", "Saldo": 1000.00,
+                    "Senha": "123", 
+                    "Saldo": 1000.00,
                     "Extrato": [], 
-                    "CPF"=12312312312,
-                    "Endereço"="Rua Pedro Eugênio de Oliveira, Bonfim, Angra dos Reis - RJ"}  
+                    "Saques_Hoje": 0,
+                    "Ultimo_Saque_Data":"",
+                    "CPF": 12312312312,
+                    "Endereço": "Rua Pedro Eugênio de Oliveira, Bonfim, Angra dos Reis - RJ"}  
     }
 
 
@@ -139,15 +143,23 @@ Tentativas Restantes: {3-i}
         
         [Cadastrando um Cliente]
         [4.1] Utilizamos uma lista "quebrar_nome" que pega o nome completo do usuário e cria elementos de lista.
-        [4.2] O nome completo do usuário é divido pelo "espaço" para criar os elementos da lista.
-        [4.3] Deste modo, conseguimos automatizar o processo de criar login.
-        [4.4] Será solicitado que o usuário cadastre uma senha e em seguida ele receberá outros parametros em seu cadastro.
-        [4.4] Saldo, status e extrato, sã valores padrões para todos os usuários criados.
+        [4.2] O nome completo do usuário é divido pelo "espaço" para criar os elementos da lista automatizando o login.
+        
+        [Validação Antiduplicidade por CPF]
+        [4.3] Como o dicionário é indexado por login, uma busca direta 'in' não mapearia CPFs existentes nas subchaves.
+        [4.4] Para mitigar isso, estruturamos um laço de repetição utilizando '.values()' que varre os perfis cadastrados,
+        [4.5] Comparando o valor em formato string para bloquear cadastros duplicados com o mesmo documento.
+
+        [Gerador Automático e Sequencial de Contas]
+        [4.6] Após consolidar o perfil do cliente, a função acessa o dicionário 'banco_de_conta_corrente'.
+        [4.7] Através do método 'max(keys()) + 1', o sistema identifica o último número de conta gerado e incrementa
+        [4.8] Automaticamente o próximo dígito de forma sequencial, mantendo a amarração com a Agência padrão "0001".
 
 -------------------------------------------------------------------------------------------------------------------------"""
 
 
 def cadastrar_cliente(nome):
+    cpf_valido = 0
     quebrar_nome = nome.lower().split()
     # Prevenção de erro para quem digita apenas um nome
     if len(quebrar_nome) == 1:
@@ -157,7 +169,32 @@ def cadastrar_cliente(nome):
         
     nome_completo = nome.title()
 
+    print(f"""
+{l_t} Cadastrando a Conta {l_t}
+Olá {login_user}, informe o seu endereço, seguindo o padrão:
+EX: Rua, Bairro, Cidade - Estado
+{l}
+          """)
+    endereço_user = input("> Endereço: ")
     senha_user = input("> Favor Informar uma senha: ")
+    
+    while cpf_valido == 0:   
+        cpf_user = input("> Informe seu CPF(Apenas Números): ")
+        
+        # Cria uma flag para identificar se encontrou o CPF duplicado
+        cpf_duplicado = False
+        
+        # Varre todos os clientes cadastrados procurando pelo CPF digitado
+        for cliente in banco_de_clientes.values():
+            # Convertemos para string caso o CPF na base esteja salvo como número
+            if str(cliente.get("CPF")) == cpf_user:
+                cpf_duplicado = True
+                break
+        
+        if cpf_duplicado:
+            print("[Atenção] Este CPF já está cadastrado em outra conta!")
+        else:
+            cpf_valido = 1
 
     novo_cliente = {
         "Nome" : nome_completo,
@@ -165,58 +202,104 @@ def cadastrar_cliente(nome):
         "Senha" : senha_user,
         "Saldo" : 0.0,
         "Status" : "Ativo",
-        "Extrato" : []
+        "Extrato": [], 
+        "Saques_Hoje": 0,
+        "Ultimo_Saque_Data":"",
+        "CPF" : cpf_user,
+        "Endereço" : endereço_user
     }
-    
-    # O PULO DO GATO: Inserindo o cliente no banco de dados principal
+
+    limpar_tela()
+    print(f"""
+{l_t} Cadastro Concluído {l_t}
+
+Olá {login_user},
+Seja Bem vinda ao nosso banco!
+
+{l}         
+          """)
+    continuar = input("Pressione qualquer tecla para continuar...")
+   
+   # O PULO DO GATO: Inserindo o cliente no banco de dados principal
     banco_de_clientes[login_user] = novo_cliente
+
+    # --- GERADOR SEQUENCIAL DE CONTA CORRENTE ---
+    agencia_padrao = "0001"
+    
+    # Se o banco de contas estiver vazio, começa com a conta 1. 
+    # Caso contrário, pega a maior chave atual (última conta) e soma 1.
+    if not banco_de_conta_corrente:
+        nova_conta = 1
+    else:
+        nova_conta = max(banco_de_conta_corrente.keys()) + 1
+    
+    # Salva a nova conta vinculada ao login do usuário
+    banco_de_conta_corrente[nova_conta] = {
+        "Agencia": agencia_padrao,
+        "Usuário": login_user
+    }
+
+    limpar_tela()
+    print(f"""
+{l_t} Cadastro Concluído {l_t}
+
+Olá {login_user},
+Seja Bem-vinda ao nosso banco!
+Sua Conta Corrente foi gerada: Ag: {agencia_padrao} | Conta: {nova_conta}
+
+{l}         
+          """)
+    continuar = input("Pressione qualquer tecla para continuar...")
     return novo_cliente
 
 
-"""------------------------------------------------ [5] Acessando a Conta--------------------------------------------------
+"""--------------------- Processos Bancários -  Funcao acessando_a_conta()--------------------------------------------
 
-        [Processos Bancários]
+        [Processos Bancários -  Funcao acessando_a_conta() ]
         [5.1] Essa etapa é a mais complexa, pois aqui mora o coração das funções do banco [saque,deposito e extrato]
         [5.2] Para fins de organização e controle, antes da abertura do laço de repetição, criamos variáveis chaves.
         [5.3] O laço de repetição While, aliado a função de limpar a tela, criam um menu dinâmico e organizado.
         [5.4] Idenpendente dos processos que ocorrerão, ele sempre disponibilizará o mesmo layout de maneira limpa.
 
-        [Operação de Saque - Opção 3]
+        [Operação de Saque - Funcao sacar()]
         [5.5] Caso o colaborador selecione a oção 3, ele entrará em uma condicional dentro do laço de repetição.
         [5.6] Como anunciado no desafio a opção saque possui diversas Limites: Saques, valores e saldo.
         [5.7] Portanto, algumas condicionais foram criadas para atender essas restrições.
         [5.8] Até mesmo, para informar mensagens de erros personalizadas devido as restrições.
         
-        [Operação Deposito - Opção 2]
+        [Operação Deposito - funcao depositar()]
         [5.9] De Maneira similar ao menu, o usuário conseguirá verificar quanto ele possui de saldo
 
-        [Operação Extrato - Opção 1]
+        [Operação Extrato - funcao extrato()]
         [5.10] Declaramos duas listas para saque e deposito, para realizarmos esta etapa
         [5.11] Cada Operação de Saque e Deposito, um novo elemento é armazenado nestas listagens
         [5.12] Para sua visualização, criamos um laço de repetição for, para exibição por linha dos elementos da lista.
 
 -------------------------------------------------------------------------------------------------------------------------"""
 
-
 def acessando_a_conta(usuario_logado):
     escolha_user = 10
-    limite_saque = 3
+    horario_atual = datetime.now()
     msg_error=""
 
     while(escolha_user != 0):
+        limite_saque = 3 - user_logado["Saques_Hoje"]
         print(f"""
 {l_t} {user_logado["Nome"]} {l_t}
 Seja bem Vindo, como podemos ajudar? 
 
+Saques Hoje: {user_logado["Saques_Hoje"]}
 Saldo Atual: (R$) {user_logado["Saldo"]}
 Limite de Saques: {limite_saque}
 {msg_error}
-{l}
+
 [3] Sacar
 [2] Depositar
 [1] Extrato
 [0] Sair
-{l}""")
+
+{l_t}{[horario_atual.strftime("%d/%m/%Y - %H:%M")]}{l_t}
+""")
         escolha_user = int(input("> Opção: "))
         if (escolha_user!=1) and (escolha_user!=2) and (escolha_user!=3) and (escolha_user!= 0):
             limpar_tela()
@@ -224,8 +307,46 @@ Limite de Saques: {limite_saque}
 
 
         elif (escolha_user == 3 ):
+            sacar(usuario_logado)
+
+
+        elif (escolha_user == 2):
+            depositar(usuario_logado)
+
+        elif (escolha_user == 1):
+            extrato(usuario_logado)
+
+        elif (escolha_user == 0):
             limpar_tela()
             print(f"""
+{l}
+Sistema Encerrado, Obrigado pela preferência
+{l}""") 
+
+"""-------------------------------------- [6] Operação de Saque - Funcao sacar()----------------------------------------------
+        [Operação de Saque - Funcao sacar()]
+        [6.1] Caso o colaborador selecione a oção 3, ele entrará em uma condicional dentro do laço de repetição.
+        [6.2] Como anunciado no desafio a opção saque possui diversas Limites: Saques, valores e saldo.
+        [6.3] Portanto, algumas condicionais foram criadas para atender essas restrições.
+        [6.4] Até mesmo, para informar mensagens de erros personalizadas devido as restrições.
+-------------------------------------------------------------------------------------------------------------------------"""
+
+def sacar(user_logado):
+    
+    agora = datetime.now()
+    dia_atual = agora.strftime("%d/%m/%Y")
+    horario_formatado = agora.strftime("%d/%m/%Y %H:%M:%S")
+
+    
+    if user_logado["Ultimo_Saque_Data"] != "" and user_logado["Ultimo_Saque_Data"] != dia_atual:
+        user_logado["Saques_Hoje"] = 0  # Reseta o contador para o novo dia
+    
+    print(user_logado["Saques_Hoje"])
+    limite_saque = 3 - user_logado["Saques_Hoje"]
+    msg_error=""
+    limpar_tela()
+
+    print(f"""
 {l_t} Opção Escolhida: Saque {l_t} 
 Caro Cliente, 
 você consegue realizar {limite_saque} saque(s) diário(s) de até R$ 500,00
@@ -233,82 +354,106 @@ você consegue realizar {limite_saque} saque(s) diário(s) de até R$ 500,00
 Saldo Disponível: (R$) {user_logado["Saldo"]}
 Saques Disponíveis: {limite_saque}
 
-{l}
+{l_t}{[horario_atual.strftime("%d/%m/%Y - %H:%M")]}{l_t}
 """)
-            saque = float(input("> Valor do Saque: "))
-            if (saque > user_logado["Saldo"]):
-                limpar_tela()
-                print("[Atenção] Você não Possui Saldo Suficiente Para esta Operação: ")
-            elif (saque > 500.00):
-                limpar_tela()
-                print("[Atenção] Valor Informado superior ao limite por saque : R$ 500,00")
-            elif( limite_saque <= 0):
-                limpar_tela()
-                print("[Atenção] Você já realizou todos os saques diários disponíveis.")
+    
+    saque = float(input("> Valor do Saque: "))
 
-            else:
-                user_logado["Extrato"].append(f"[Saque]: R$ {saque :.2f}")
-                user_logado["Saldo"] = user_logado["Saldo"] - saque
-                limite_saque-=1
-                print("Operação Realizada!")
-                limpar_tela()
+    if (saque > user_logado["Saldo"]):
+        limpar_tela()
+        print("[Atenção] Você não Possui Saldo Suficiente Para esta Operação: ")
+    elif (saque > 500.00):
+        limpar_tela()
+        print("[Atenção] Valor Informado superior ao limite por saque : R$ 500,00")
+    elif( limite_saque <= 0):
+        limpar_tela()
+        print("[Atenção] Você já realizou todos os saques diários disponíveis.")
+
+    else:
+        user_logado["Extrato"].append(f"[Saque][{horario_atual.strftime('%d/%m/%Y - %H:%M')}]: R$ {saque :.2f}")
+        user_logado["Saldo"] = user_logado["Saldo"] - saque
+        
+        # Atualiza a data do último saque para a data de hoje e soma 1
+        user_logado["Ultimo_Saque_Data"] = dia_atual
+        user_logado["Saques_Hoje"] += 1
+
+        print("Operação Realizada!")
+        limpar_tela()
 
 
-        elif (escolha_user == 2):
-            limpar_tela()
-            print(f"""
+"""--------------------- [7] Operação Deposito - funcao depositar()--------------------------------------------
+
+        [7.1] De Maneira similar ao menu, o usuário conseguirá verificar quanto ele possui de saldo
+
+-------------------------------------------------------------------------------------------------------------------------"""
+
+def depositar(user_logado):
+    escolha_user = 10
+    msg_error=""
+    limpar_tela()
+    print(f"""
+{l_t} Depositar {l_t}
 Caro Cliente, 
-Você possui um Saldo Disponível de : (R$){user_logado["Saldo"]}""")
-            deposito = float(input("> Valor do Deposito: "))
-            user_logado["Extrato"].append(f"[Deposito]: R$ {deposito :.2f}")
-            user_logado["Saldo"] = user_logado["Saldo"] + deposito
-            print("Operação Realizada!")
-            limpar_tela()
+Você possui um Saldo Disponível de : (R$){user_logado["Saldo"]}
 
-        elif (escolha_user == 1):
-            limpar_tela()
-            print(f"{l_t} Extrato Bancário {l_t}")
-            # Checa se o extrato está vazio
-            if not user_logado["Extrato"]:
-                print("Não foram realizadas movimentações.")
-            else:
-                # Imprime operação por operação em ordem cronológica
-                for operacao in user_logado["Extrato"]:
-                    print(operacao)
-                print(l)
-                continuar = input("Pressione Qualquer Tecla, para continuar...") 
-            limpar_tela()
+{l_t}{[horario_atual.strftime("%d/%m/%Y - %H:%M")]}{l_t}""")    
+    
+    deposito = float(input("> Valor do Deposito: "))
+    user_logado["Extrato"].append(f"[Deposito][{horario_atual.strftime("%d/%m/%Y - %H:%M")}]: R$ {deposito :.2f}")
+    user_logado["Saldo"] = user_logado["Saldo"] + deposito
+    print("Operação Realizada!")
+    limpar_tela()
 
-        elif (escolha_user == 0):
-            limpar_tela()
-            print(f"""
-{l}
-Sistema Encerrado, Obrigado pela preferência
-{l}""")
+"""--------------------- [8] Operação de Extrato -  Funcao extrato()--------------------------------------------
+        
+        [8.1] Declaramos duas listas para saque e deposito, para realizarmos esta etapa
+        [8.2] Cada Operação de Saque e Deposito, um novo elemento é armazenado nestas listagens
+        [8.3] Para sua visualização, criamos um laço de repetição for, para exibição por linha dos elementos da lista.
+
+-------------------------------------------------------------------------------------------------------------------------"""
+
+def extrato(user_logado):
+    escolha_user = 10
+    limite_saque = 3
+    msg_error=""
+    limpar_tela()
+    print(f"{l_t} Extrato Bancário {l_t}")
+    # Checa se o extrato está vazio
+    if not user_logado["Extrato"]:
+        print("Não foram realizadas movimentações.")
+    else:
+        # Imprime operação por operação em ordem cronológica
+        for operacao in user_logado["Extrato"]:
+            print(operacao)
+        print(l)
+        continuar = input("Pressione Qualquer Tecla, para continuar...")       
+        limpar_tela()
 
 
-
-
-"""------------------------------------------- [6]Menu Inicial -------------------------------------------------
+"""------------------------------------------- [9] Menu Inicial -------------------------------------------------
     [Primeira Tela a ser exibida]
-    [6.1] Esta é a primeira tela a ser exibida ao usuário.
-    [6.2] As opções de acesso, indicam qual função deverá ser acessada para prosseguirmos com o processo.
+    [9.1] Esta é a primeira tela a ser exibida ao usuário.
+    [9.2] As opções de acesso, indicam qual função deverá ser acessada para prosseguirmos com o processo.
 
     [Mensagem de Encerramento por Tentativas]
-    [6.3] Existe uma mensagem de encerramento personalizada, caso o acesso seja bloqueado
+    [9.3] Existe uma mensagem de encerramento personalizada, caso o acesso seja bloqueado
 
 -------------------------------------------------------------------------------------------------------------"""
 
 while banco == True:
+    horario_atual = datetime.now()
     limpar_tela()
     print(f"""
 {l_t}Sistema Bancário{l_t}
+
 Olá, 
 seja bem vindo ao Banco Python ltda!
-{l}\n
+
 [1] Acessar Conta - Sou cadastrado
 [2] Primeiro Acesso - Criar Conta
 [0] Encerrar o Programa
+
+{l_t}{[horario_atual.strftime("%d/%m/%Y - %H:%M")]}{l_t}
 """)
     user_escolha = int(input("> Selecione uma Opção: "))
     limpar_tela()
@@ -338,9 +483,27 @@ Sessão Encerrada por Excesso de Tentativas
                 banco = False
 
             else:
+                contas_do_usuario = []
+                
+                # Varre o banco de contas procurando quais chaves têm o login deste usuário
+                for numero_conta, dados_conta in banco_de_conta_corrente.items():
+                    if dados_conta["Usuário"] == login_user:
+                        contas_do_usuario.append(f"Agência: {dados_conta['Agencia']} | Conta Corrente: {numero_conta}")
+                
+                # Mostra as contas encontradas antes de entrar nas operações
+                print(f"{l_t} Suas Contas Vinculadas {l_t}")
+                if not contas_do_usuario:
+                    print("Nenhuma conta corrente ativa encontrada para este perfil.")
+                else:
+                    for conta in contas_do_usuario:
+                        print(conta)
+                print(l)
+                
+                input("Pressione Qualquer Tecla para acessar o menu de operações...")
+                limpar_tela()
+                
+                # Entra no menu de movimentação (sacar, depositar, etc)
                 acessando_a_conta(user_logado)
-
-
 
     # Processo para Cadastrar
         if(user_escolha == 2):
