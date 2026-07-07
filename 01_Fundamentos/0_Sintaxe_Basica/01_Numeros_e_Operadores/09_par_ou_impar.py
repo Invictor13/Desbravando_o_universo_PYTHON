@@ -1,5 +1,5 @@
 """
-DESAFIO 04: Par ou Impar?
+DESAFIO 09: Par ou Impar?
 
 Nível: Iniciante
 Objetivo: Trabalhar com operadores de resto (%) e operadores de comparação direta.

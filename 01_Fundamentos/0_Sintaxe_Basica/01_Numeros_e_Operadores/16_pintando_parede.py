@@ -1,5 +1,5 @@
 """
-DESAFIO 10: Pintando a Parede
+DESAFIO 16: Pintando a Parede
 
 Nível: Iniciante
 Objetivo: Aplicar conceitos de área e cálculo proporcional simples.

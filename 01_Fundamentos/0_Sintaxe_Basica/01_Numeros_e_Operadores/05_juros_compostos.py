@@ -1,5 +1,6 @@
 """
-DESAFIO 04: Simulador de Investimento (Juros Compostos)
+DESAFIO 05
+: Simulador de Investimento (Juros Compostos)
 
 Nível: Avançado (Sintaxe Básica)
 Objetivo: Aplicar a precedência de operadores aritméticos em fórmulas financeiras complexas.

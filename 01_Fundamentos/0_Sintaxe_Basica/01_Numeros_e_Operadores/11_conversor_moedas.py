@@ -1,5 +1,5 @@
 """
-DESAFIO 07: Conversor de Moedas Básico
+DESAFIO 11: Conversor de Moedas Básico
 
 Nível: Iniciante
 Objetivo: Praticar divisão e formatação de dados monetários.

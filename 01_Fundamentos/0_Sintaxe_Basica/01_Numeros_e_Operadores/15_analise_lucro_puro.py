@@ -1,5 +1,5 @@
 """
-DESAFIO 10: Analisador de Viabilidade Financeira (Lógica Pura)
+DESAFIO 15: Analisador de Viabilidade Financeira (Lógica Pura)
 
 Nível: Avançado (Sintaxe Básica)
 Objetivo: Consolidar custos fixos, variáveis e receitas para gerar um indicador booleano de viabilidade.

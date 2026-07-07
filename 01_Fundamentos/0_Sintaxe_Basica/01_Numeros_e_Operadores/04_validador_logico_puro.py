@@ -1,5 +1,5 @@
 """
-DESAFIO 03: Validador Lógico de Empréstimo (Expressões Booleanas)
+DESAFIO 04: Validador Lógico de Empréstimo (Expressões Booleanas)
 
 Nível: Avançado (Sintaxe Básica)
 Objetivo: Construir expressões lógicas complexas combinando múltiplos operadores relacionais e lógicos.
