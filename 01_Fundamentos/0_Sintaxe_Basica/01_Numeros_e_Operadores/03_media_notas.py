@@ -26,6 +26,7 @@ primeira_nota = float(input("Favor informar o valor da primeira nota: "))
 segunda_nota = float(input("Favor informar o valor da segunda nota: "))
 terceira_nota = float(input("Favor informar o valor da terceira nota: "))
 
+# O comando ":.2f" serve para informar os algarismos significativos: '2.00'
 media = (primeira_nota + segunda_nota + terceira_nota)/3
 print(f"""--------------------------------------------------------
 Média das Notas: {media:.2f}

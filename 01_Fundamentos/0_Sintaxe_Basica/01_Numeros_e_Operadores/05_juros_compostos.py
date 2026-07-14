@@ -1,14 +1,13 @@
 """
-DESAFIO 05
-: Simulador de Investimento (Juros Compostos)
+Exercicio 05 : Simulador de Investimento (Juros Compostos)
 
-Nível: Avançado (Sintaxe Básica)
-Objetivo: Aplicar a precedência de operadores aritméticos em fórmulas financeiras complexas.
-Conceitos: Potenciação (**), precedência de operadores, entrada de dados (float/int) e formatação monetária.
+    1) Objetivo: Aplicar a precedência de operadores aritméticos em fórmulas financeiras complexas.
+    2) Conceitos: Potenciação (**), precedência de operadores, entrada de dados (float/int) e formatação monetária.
 
 Enunciado:
     Crie um script que calcule o valor final de um investimento usando a fórmula dos juros compostos:
-    M = P * (1 + i) ** t
+                                        M = P * (1 + i) ** t
+    
     Onde:
     - M é o montante final.
     - P é o capital inicial (float fornecido pelo usuário).
@@ -17,6 +16,7 @@ Enunciado:
     O programa deve calcular o montante final e exibir o valor total acumulado e o total de juros rendidos.
 
 Exemplo de Execução:
+    --------------------------------------------------------
     Capital Inicial (R$): 1000.00
     Taxa de Juros Mensal (%): 2.0
     Tempo de Investimento (meses): 12
@@ -26,7 +26,7 @@ Exemplo de Execução:
     > Total de Juros Rendidos: R$ 268.24
 """
 
-# Desenvolva o seu código abaixo:
+
 print("""
              ------ Simulador de Juros Compostos -------
 Este script calculará o rendimento de um capital no regime de juros compostos

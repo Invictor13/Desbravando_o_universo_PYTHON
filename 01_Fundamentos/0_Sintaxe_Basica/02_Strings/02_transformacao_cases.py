@@ -1,5 +1,6 @@
 """
 Exercício 03: Fatiamento e Inversão de Textos
+    
     1) Objetivo: Dominar a manipulação de índices em strings utilizando a sintaxe de slicing [início:fim:passo].
     2) Conceitos: Slicing, índices positivos e negativos, extração de subfrases e inversão de coleções.
 

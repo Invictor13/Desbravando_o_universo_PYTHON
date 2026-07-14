@@ -1,20 +1,21 @@
 """
-DESAFIO 01: Analisador Estático de Nomes
+Exercicio 04: Analisador Estático de Nomes
 
-Nível: Avançado (Sintaxe Básica)
-Objetivo: Explorar os métodos embutidos de strings para análise de dados textuais.
-Conceitos: Métodos de string (.upper, .lower, .strip, .replace), contagem com len() e indexação.
+    1) Objetivo: Explorar os métodos embutidos de strings para análise de dados textuais.
+    2) Conceitos: Métodos de string (.upper, .lower, .strip, .replace), contagem com len() e indexação.
 
 Enunciado:
-    Crie um programa que leia o nome completo de uma pessoa (com espaços) e, utilizando 
+    -Crie um programa que leia o nome completo de uma pessoa (com espaços) e, utilizando 
     apenas manipulação de strings e funções básicas, exiba:
-    1. O nome com todas as letras maiúsculas e todas minúsculas.
-    2. Quantas letras ao todo o nome possui (sem considerar os espaços internos).
-    3. Quantas letras tem apenas o primeiro nome da pessoa.
+        1. O nome com todas as letras maiúsculas e todas minúsculas.
+        2. Quantas letras ao todo o nome possui (sem considerar os espaços internos).
+        3. Quantas letras tem apenas o primeiro nome da pessoa.
 
 Exemplo de Execução:
-    Digite seu nome completo: Victor Viana
-    --------------------------------------------------------
+
+--------------------------------------------------------
+ Digite seu nome completo: Victor Viana
+--------------------------------------------------------
     Análise de Sintaxe de Texto:
     > Em Maiúsculas: VICTOR VIANA
     > Em Minúsculas: victor viana
